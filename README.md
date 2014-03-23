@@ -34,6 +34,27 @@ summon.route('/test-route','GET').execute(function(code, result, response) {
 });
 ```
 
+### Post Data Usage
+
+Invoke a POST request, and run through middleware
+
+```
+var express = require('expresss');
+var summon = require('express-summon-route');
+var app = new express();
+
+summon.use(app, express); // need to pass an instance of app to summon, and express library
+
+app.post('/test-route', function(req, res) {
+    res.send(200, req.body.myParam); 
+});
+
+summon.route('/test-route','POST').addBody({myParam:'qBit'}).execute(function(code, result, response) {
+    console.log(result); // outputs qBit!
+    console.log(code); // 200 
+});
+```
+
 ##Caveats
 
 This library might not work with all middleware because it sends a modified request and response object through express. I will continue to test and find situations where the library may not perform as expected. File and Cookie support are next on the list for compatability. 

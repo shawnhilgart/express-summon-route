@@ -17,7 +17,7 @@ var express = require('expresss');
 var summon = require('express-summon-route');
 var app = new express();
 
-summon.use(app); // need to pass an instance of app to summon
+summon.use(app, express); // need to pass an instance of app to summon, and express library
 app.use(function(req, res, next) {
     res.set('x-header-mine','test-header'); // middleware
     next();

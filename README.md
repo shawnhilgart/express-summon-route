@@ -13,7 +13,7 @@ Right now the utility supports routes registered through the get, post, put, and
 Invoke a get request, and run through middleware
 
 ```
-var express = require('expresss');
+var express = require('express');
 var summon = require('express-summon-route');
 var app = new express();
 
@@ -39,7 +39,7 @@ summon.route('/test-route','GET').execute(function(code, result, response) {
 Invoke a POST request, and run through middleware
 
 ```
-var express = require('expresss');
+var express = require('express');
 var summon = require('express-summon-route');
 var app = new express();
 
